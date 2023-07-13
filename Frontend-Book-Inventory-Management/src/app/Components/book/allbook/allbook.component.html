@@ -1,0 +1,24 @@
+<h3 style="margin-left: 35rem; font-style: oblique;">Book List</h3>
+    <hr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Book Edition</th>
+            <th>PublisherId</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td>{{book.isbn}}</td>
+            <td>{{book.category}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.description}}</td>
+            <td>{{book.edition}}</td>
+            <td>{{book.publisherId}}</td>
+        </tr>
+    </tbody>
+</table>

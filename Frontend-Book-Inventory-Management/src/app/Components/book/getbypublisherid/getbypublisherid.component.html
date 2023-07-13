@@ -1,0 +1,43 @@
+<h2 style="font-family: Oxygen; margin-top: 1rem;">Search Book by Publisher</h2><br>
+
+<form (ngSubmit)="getBooksByPublisherId()" #publisherForm="ngForm">
+  <div class="search">
+      <select id="cname" [(ngModel)]="publisherId" name="publisherId" placeholder="Select" required>
+        <option value="select" disabled selected>Select Publisher</option>
+
+        <option *ngFor="let Publisher of allPublisherList" [value]="Publisher.publisherId">
+          {{ Publisher.name }}
+        </option>
+      </select>
+    <div
+      *ngIf="publisherForm.controls['publisherId'].invalid && (publisherForm.controls['publisherId'].dirty || publisherForm.controls['publisherId'].touched)"
+      style="color: red;">
+      *Publisher ID is required.
+    </div>
+    <button type="submit" [disabled]="publisherForm.invalid"><strong>Search</strong></button>
+  </div>
+</form>
+<hr>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Book ID</th>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Edition</th>
+      <th>Publisher ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of publisherList">
+      <td>{{ book.isbn }}</td>
+      <td>{{ book.category }}</td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.description }}</td>
+      <td>{{ book.edition }}</td>
+      <td>{{ book.publisherId }}</td>
+    </tr>
+  </tbody>
+</table>

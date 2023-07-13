@@ -1,0 +1,117 @@
+<body>
+    <div class="admin-dashboard">
+        <h2>Guest Dashboard</h2>
+    </div>
+
+    <div class="d-flex flex-wrap container">
+        <div class="card">
+            <img src="/assets/dash1.png" alt="Books Image" />
+
+            <div class="dropdown">
+                <span class="dropdown-label btn" style="margin-top: 0.8rem">Books</span>
+
+                <div class="dropdown-content">
+                    <a  class="dropdown-option" routerLink="/allbook">Get all books</a>
+
+                    <a  class="dropdown-option" routerLink="/getbytitle">Get book by title</a>
+
+                    <a  class="dropdown-option" routerLink="/getbycategory">Get book by category</a>
+
+                    <a  class="dropdown-option" routerLink="/getbypublisherid">Get book by publisher</a>
+
+                    <a  class="dropdown-option" routerLink="/getbyisbn">Get book by isbn</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="/assets/dash2.png" alt="Publisher Image" />
+
+            <div class="dropdown">
+                <span class="dropdown-label btn">Publisher</span>
+
+                <div class="dropdown-content">
+                    <a href="#" class="dropdown-option" routerLink="/getallpublisher">Get all publishers</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="/assets/dash3.png" alt="Author Image" />
+
+            <div class="dropdown">
+                <span class="dropdown-label btn">Author</span>
+
+                <div class="dropdown-content">
+                    <a  class="dropdown-option" routerLink="/get-author">Fetch Author Data</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="/assets/dash4.png" alt="Category Image" />
+
+            <div class="dropdown">
+                <span class="dropdown-label btn">Category</span>
+
+                <div class="dropdown-content">
+                    <a href="#" class="dropdown-option" routerLink="/get-category">Get Book Category</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="/assets/dash5.png" alt="State Image" />
+
+            <div class="dropdown">
+                <span class="dropdown-label btn">State</span>
+
+                <div class="dropdown-content">
+                    <a href="#" class="dropdown-option" routerLink="/getallstate">Get all states</a>
+
+                    <a href="#" class="dropdown-option" routerLink="/update-state">Update state name with ID</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="/assets/dash8.png" alt="Book Review Image" />
+
+            <div class="dropdown">
+                <span class="dropdown-label btn">BookReview</span>
+
+                <div class="dropdown-content">
+                    <a href="#" class="dropdown-option" routerLink="/get-book-review">Get Book Review</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="/assets/dash9.png" alt="Book Inventory Image" />
+
+            <div class="dropdown">
+                <span class="dropdown-label btn">BookInventory</span>
+
+                <div class="dropdown-content">
+                    <a href="#" class="dropdown-option" routerLink="/search-inventory">Get book Inventory</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="/assets/dash10.png" alt="Book Condition Image" />
+
+            <div class="dropdown">
+                <span class="dropdown-label btn">Book Condition</span>
+
+                <div class="dropdown-content">
+                    <a class="dropdown-option" routerLink="/getbookcondition">Get book condition</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</body>

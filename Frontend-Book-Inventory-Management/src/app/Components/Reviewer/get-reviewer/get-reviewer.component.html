@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Get Reviewer</h5>
+
+    <div class="form-group">
+      <label for="reviewerIdInput">Reviewer ID:</label>
+      <input id="reviewerIdInput" type="number" [(ngModel)]="reviewerId" />
+    </div>
+
+    <button class="btn btn-primary" (click)="getReviewer()">Get Reviewer</button>
+
+    <div *ngIf="reviewer">
+      <h5 style="margin-top: 1rem;">Reviewer Details</h5>
+      <p>Reviewer ID: {{ reviewer.reviewerId }}</p>
+      <p>Name: {{ reviewer.name }}</p>
+      <p>Employed By: {{ reviewer.employedBy }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #240046; border-style: dashed">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a routerLink="home" class="my-link" style="color: white">
+                        <h1 style="font-family: cursive">BookCart.com</h1>
+                    </a>
+                    <h6 style="margin-left: 10rem">Your Reading Partner...</h6>
+                </li>
+            </ul>
+            <div class="navbar">
+                <div class="dropdown">
+                    <button class="regb" routerLink="/home">Home</button>
+                </div>
+
+                <div class="dropdown">
+                    <button class="regb" *ngIf="!isLoggedIn()" routerLink="/login">
+                        Login
+                    </button>
+                </div>
+
+                <button class="regb" *ngIf="!isLoggedIn()" routerLink="/register">
+                    Register
+                </button>
+
+                <button class="regb" *ngIf="isLoggedIn()" (click)="getBack()">
+                    Dashboard
+                </button>
+
+                <button class="regb" *ngIf="isLoggedIn()" (click)="logout()">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>

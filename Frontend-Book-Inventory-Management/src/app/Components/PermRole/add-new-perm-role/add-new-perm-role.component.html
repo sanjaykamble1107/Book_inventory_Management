@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="card">
+    <h5><strong>Add permRole</strong></h5>
+    <form (submit)="addPermRole()">
+      <label for="roleNumber">Role Number:</label>
+      <input type="number" id="roleNumber" name="roleNumber" [(ngModel)]="newPermRole.roleNumber" required>
+      <br>
+      <label for="permRole">Perm Role:</label>
+      <input type="text" id="permRole" name="permRole" placeholder="PermRole to assign"
+        [(ngModel)]="newPermRole.permRole" required>
+      <br>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h5><strong>Search permRole By Role Number</strong></h5>
+    <form (submit)="searchPermRole()">
+      <label for="searchRoleNumber">Enter Role No:</label>
+      <input type="number" id="searchRoleNumber" name="searchRoleNumber" [(ngModel)]="searchRoleNumber" required>
+      <br>
+      <button type="submit">Search</button>
+    </form>
+    <br>
+
+    <!-- Display search results -->
+    <h6><strong> Results for search by Role No </strong></h6>
+    <table class="table" *ngIf="searchResults.length > 0">
+      <thead>
+        <tr>
+          <th>Entered role number</th>
+          <th>Perm Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let permRole of searchResults">
+          <td>{{ permRole.roleNumber }}</td>
+          <td>{{ permRole.permRole }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="searchResults.length === 0">No results found.</p>
+  </div>
+
+  <div class="card">
+    <h4><strong>Update PermRole</strong></h4>
+    <form (submit)="updatePermRole()">
+      <label for="updateRoleNumber">Update Role Number:</label>
+      <input type="number" id="updateRoleNumber" name="updateRoleNumber" [(ngModel)]="updateRoleNumber" required>
+      <br>
+      <label for="updatedPermRole">Updated Perm Role:</label>
+      <input type="text" id="updatedPermRole" name="updatedPermRole" [(ngModel)]="updatedPermRole"
+        placeholder="Enter PermRole to update" required>
+      <br>
+      <button type="submit">Update</button>
+    </form>
+  </div>
+</div>

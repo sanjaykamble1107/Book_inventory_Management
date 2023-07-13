@@ -1,0 +1,129 @@
+<div>
+  <h3 style="text-underline-position: below; font-style: oblique" align="center">
+    Add New Book
+  </h3>
+  <hr />
+  <form (ngSubmit)="addbook()" #bookForm="ngForm">
+    <div align="center">
+      <table border="2px" style="
+          background-color: #f4f0f8;
+          padding-right: 30px;
+          border-radius: 1rem;
+        ">
+        <tr>
+          <td>
+            <label for="isbn" style="margin: 20px"><b>Book ISBN:</b></label>
+          </td>
+          <td style="padding-right: 30px">
+            <input type="text" id="isbn" placeholder="Enter ISBN ID" [(ngModel)]="book.isbn" name="isbn" required />
+            <div *ngIf="
+                bookForm.controls['isbn'].invalid &&
+                (bookForm.controls['isbn'].dirty ||
+                  bookForm.controls['isbn'].touched)
+              " style="color: red">
+              ISBN is required.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="cname" style="margin: 20px"><b>Category:</b></label>
+          </td>
+
+          <td style="padding-right: 30px">
+            <select id="cname" [(ngModel)]="book.category" name="catId" placeholder="Select" required>
+              <option value="select" disabled selected>Select below</option>
+
+              <option *ngFor="let Category of categoryList" [value]="Category.catId">
+                {{ Category.catDescription }}
+              </option>
+            </select>
+
+            <div *ngIf="
+                bookForm.controls['catId'].invalid &&
+                (bookForm.controls['catId'].dirty ||
+                  bookForm.controls['catId'].touched)
+              " style="color: red">
+              Category is required.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="region" style="margin: 20px"><b>Title:</b></label>
+          </td>
+          <td style="padding-right: 30px">
+            <input type="text" id="region" placeholder="Enter Book Title" [(ngModel)]="book.title" name="title"
+              required />
+            <div *ngIf="
+                bookForm.controls['title'].invalid &&
+                (bookForm.controls['title'].dirty ||
+                  bookForm.controls['title'].touched)
+              " style="color: red">
+              Title is required.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="subregion" style="margin: 20px"><b>Description:</b></label>
+          </td>
+          <td style="padding-right: 30px">
+            <input type="text" id="subregion" placeholder="Enter Book Description" [(ngModel)]="book.description"
+              name="description" required />
+            <div *ngIf="
+                bookForm.controls['description'].invalid &&
+                (bookForm.controls['description'].dirty ||
+                  bookForm.controls['description'].touched)
+              " style="color: red">
+              Description is required.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="countrytotal" style="margin: 20px"><b>Book Edition:</b></label>
+          </td>
+          <td style="padding-right: 30px">
+            <input type="number" id="countrytotal" placeholder="Enter Book Edition" [(ngModel)]="book.edition"
+              name="edition" required />
+            <div *ngIf="
+                bookForm.controls['edition'].invalid &&
+                (bookForm.controls['edition'].dirty ||
+                  bookForm.controls['edition'].touched)
+              " style="color: red">
+              Edition is required.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="countrytotal" style="margin: 20px"><b>Publisher ID:</b></label>
+          </td>
+          <td style="padding-right: 30px">
+            <select id="cname" [(ngModel)]="book.publisherId" name="publisherId" placeholder="Select" required>
+              <option value="select" disabled selected>Select Publisher</option>
+
+              <option *ngFor="let Publisher of publisherList" [value]="Publisher.publisherId">
+                {{ Publisher.name }}
+              </option>
+            </select>
+            <div *ngIf="
+                bookForm.controls['publisherId'].invalid &&
+                (bookForm.controls['publisherId'].dirty ||
+                  bookForm.controls['publisherId'].touched)
+              " style="color: red">
+              Publisher ID is required.
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div style="color: brown">
+        <button type="submit" class="btn my-1" style="background-color: rgb(245, 247, 246)"
+          [disabled]="bookForm.invalid">
+          ADD
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

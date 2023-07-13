@@ -1,0 +1,23 @@
+<div>
+  <h2>Search Purchase Logs</h2>
+  <label for="userIdInput">Enter User ID:</label>
+  <input type="number" id="userIdInput" [(ngModel)]="userId">
+  <button (click)="searchPurchaseLogs()">Search</button>
+
+  <table *ngIf="flag">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Inventory ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td>{{ purchaseLogs.userId }}</td>
+      <td>{{ purchaseLogs.inventoryId }}</td>
+    </tbody>
+  </table>
+
+  <div *ngIf="purchaseLogs.length === 0">
+    No purchase logs found for the given User ID.
+  </div>
+</div>

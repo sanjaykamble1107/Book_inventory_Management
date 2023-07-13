@@ -1,0 +1,54 @@
+<div class="card-container">
+  <div class="card">
+    <h2>Add New Reviewer</h2>
+
+    <form (ngSubmit)="addReviewer()" #reviewerForm="ngForm">
+      <div>
+        <label for="name">Name:</label>
+
+        <input type="text" id="name" name="name" [(ngModel)]="newReviewer.name" required pattern="[a-zA-Z\s]+"
+          style="margin-left: 2cm" title="Please enter a valid name (letters and spaces only)" />
+
+        <div *ngIf="
+            reviewerForm.controls['name'].invalid &&
+            (reviewerForm.controls['name'].dirty ||
+              reviewerForm.controls['name'].touched)
+          ">
+          <div *ngIf="reviewerForm.controls['name'].hasError('required')" style="color: red">
+            Name is required.
+          </div>
+
+          <div *ngIf="reviewerForm.controls['name'].hasError('pattern')" style="color: red">
+            Please enter a valid name (letters and spaces only).
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label for="employedBy">Employed By:</label>
+
+        <input type="text" id="employedBy" name="employedBy" [(ngModel)]="newReviewer.employedBy" required
+          pattern="[a-zA-Z\s]+" style="margin-left: 0.5cm"
+          title="Please enter a valid Employed By (letters and spaces only)" />
+
+        <div *ngIf="
+            reviewerForm.controls['employedBy'].invalid &&
+            (reviewerForm.controls['employedBy'].dirty ||
+              reviewerForm.controls['employedBy'].touched)
+          ">
+          <div *ngIf="reviewerForm.controls['employedBy'].hasError('required')" style="color: red">
+            Employed By is required.
+          </div>
+
+          <div *ngIf="reviewerForm.controls['employedBy'].hasError('pattern')" style="color: red">
+            Please enter a valid Employed By (letters and spaces only).
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!reviewerForm.valid">
+        Add Reviewer
+      </button>
+    </form>
+  </div>
+</div>

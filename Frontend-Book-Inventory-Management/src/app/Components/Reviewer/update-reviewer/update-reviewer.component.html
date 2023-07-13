@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Update Reviewer Details</h5>
+
+    <div class="form-group">
+      <label for="reviewerIdInput">Reviewer ID:</label>
+
+      <input id="reviewerIdInput" type="number" [(ngModel)]="reviewerId" name="reviewerId" required
+        #reviewerIdInput="ngModel" />
+
+      <div *ngIf="
+          reviewerIdInput.invalid &&
+          (reviewerIdInput.dirty || reviewerIdInput.touched)
+        " style="color: red">
+        Reviewer ID is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="nameInput">Update Name:</label>
+
+      <input id="nameInput" type="text" [(ngModel)]="name" name="name" required #nameInput="ngModel" />
+
+      <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" style="color: red">
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="employedByInput">Update Employed By:</label>
+
+      <input id="employedByInput" type="text" [(ngModel)]="employedBy" name="employedBy" required
+        #employedByInput="ngModel" />
+
+      <div *ngIf="
+          employedByInput.invalid &&
+          (employedByInput.dirty || employedByInput.touched)
+        " style="color: red">
+        Employed By is required.
+      </div>
+    </div>
+
+    <button class="btn btn-primary" (click)="updateReviewer()">
+      Update Reviewer
+    </button>
+  </div>
+</div>

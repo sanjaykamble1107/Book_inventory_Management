@@ -1,0 +1,41 @@
+<h3 style="margin-left: 30rem;">Publishers List</h3>
+<hr>
+<table class="table table-responsive-sm table-sm">
+  <thead>
+    <tr>
+      <th>Publisher ID</th>
+      <th>Name</th>
+      <th>City</th>
+      <th>State Code</th>
+      <th id="act" *ngIf="userRole=='Admin'">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let publisher of publishers">
+      <td>{{ publisher.publisherId }}</td>
+      <td>{{ publisher.name }}</td>
+      <td>{{ publisher.city }}</td>
+      <td>{{ publisher.stateCode }}</td>
+      <td id="act" *ngIf="userRole=='Admin'"><button (click)="showUpdateForm(publisher.publisherId)"><span> Update</span></button></td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="showForm && userRole=='Admin'"  class="card">
+  <h2>Update Publisher</h2>
+  <form (ngSubmit)="updatePublisher()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="selectedPublisher.name" required>
+    </div>
+    <div class="form-group">
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" [(ngModel)]="selectedPublisher.city" required>
+    </div>
+    <div class="form-group">
+      <label for="stateCode">State Code:</label>
+      <input type="text" id="stateCode" name="stateCode" [(ngModel)]="selectedPublisher.stateCode" required>
+    </div>
+    <button type="submit">Update</button>
+  </form>
+</div>

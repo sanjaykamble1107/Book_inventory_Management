@@ -1,0 +1,44 @@
+<h2 style="font-family: Oxygen; margin-top: 1rem">Search Book by Category</h2>
+<br />
+
+<form (ngSubmit)="getBooksByCategory()" #categoryForm="ngForm">
+  <div>
+    <input type="number" id="categorySearch" [(ngModel)]="searchCriteria.category" name="categorySearch"
+      placeholder="Search Book by Category..." required />
+
+    <div *ngIf="
+        categoryForm.controls['categorySearch'].invalid &&
+        (categoryForm.controls['categorySearch'].dirty ||
+          categoryForm.controls['categorySearch'].touched)
+      " style="color: red">
+      Category is required.
+    </div>
+    <button type="submit" [disabled]="categoryForm.invalid">
+      <strong>Search</strong>
+    </button>
+  </div>
+</form>
+<hr />
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Book ID</th>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Edition</th>
+      <th>Publisher ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of booksByCategoryList">
+      <td>{{ book.isbn }}</td>
+      <td>{{ book.category }}</td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.description }}</td>
+      <td>{{ book.edition }}</td>
+      <td>{{ book.publisherId }}</td>
+    </tr>
+  </tbody>
+</table>

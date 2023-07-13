@@ -1,0 +1,58 @@
+.table th,
+.table td {
+  border: 1px solid rgb(240, 209, 209);
+
+  padding: 8px;
+
+  background-color: white;
+}
+
+.table th {
+  background-color: #ffeade;
+}
+
+.table {
+  width: 80%;
+
+  margin-left: 8rem;
+}
+
+/* CSS for input field */
+
+#ranksInput {
+  width: 200px;
+
+  padding: 10px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  margin-left: 9rem;
+}
+
+/* CSS for button */
+
+button {
+  padding: 10px 10px;
+
+  background-color: #4e99e9;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,16 @@
+<div class="card">
+  <h4>Get Category Description</h4>
+  <div>
+    <label for="catId">Enter Category ID:</label>
+    <input type="number" id="catId" [(ngModel)]="categoryId">
+    <div class="btn-container">
+      <button (click)="getCategoryDescription()">Get Description</button>
+    </div>
+  </div>
+</div>
+
+<div class="card" *ngIf="category">
+  <h4>Category Details</h4>
+  <p><strong>Category ID:</strong> {{ category.catId }}</p>
+  <p><strong>Category Description:</strong> {{ category.catDescription }}</p>
+</div>

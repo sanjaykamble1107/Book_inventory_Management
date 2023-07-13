@@ -1,0 +1,144 @@
+<body class="container border-black" >
+  <div id="book-carousel" class="carousel slide p-3" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/assets/cover11.png" class="d-block w-100" alt="Book 1">
+        <div class="carousel-caption">
+
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/carasoul.png" class="d-block w-100" alt="Book 2">
+        <div class="carousel-caption">
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/cover.png" class="d-block w-100" alt="Book 3">
+        <div class="carousel-caption">
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#book-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#book-carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <hr>
+  <hr>
+
+  <body>
+    <hr>
+    <h2 style="font-family: cursive;">Explore some of Book Categories</h2>
+    <div class="card-container">
+      <div class="card" (click)="getById('1')" routerLink="/getbycategory">
+        <img src="/assets/book4.png" alt="Book 1">
+        <div class="card-content">
+          <h3 class="card-title">Category: Romance</h3>
+          <p class="card-info">Romance books are a popular genre of literature that focus on romantic relationships and
+            often explore themes of love, passion, and emotional connections between characters. These books typically
+            revolve around the development and progression of a romantic relationship, featuring elements such as
+            attraction, courtship, and often a happy ending.</p>
+        </div>
+      </div>
+      <!--   -->
+      <div class="card" (click)="getById('2')" routerLink="/getbycategory">
+        <img src="/assets/book6.png" alt="Book 2">
+        <div class="card-content">
+          <h3 class="card-title">Category: Comics</h3>
+          <p class="card-info">Comic books are a form of sequential art that uses a combination of images and text to
+            tell a story. They are typically presented in a magazine-like format, with panels containing illustrations
+            and dialogue bubbles or captions conveying the narrative and dialogue.</p>
+
+        </div>
+      </div>
+      <div class="card" (click)="getById('3')" routerLink="/getbycategory">
+        <img src="/assets/book3.png" alt="Book 3">
+        <div class="card-content"><br>
+          <h3 class="card-title">Category: Science Programming</h3>
+          <p class="card-info">Bridging the Gap Between Science and Code" is a comprehensive and accessible guide that
+            explores the intersection of science and programming, offering a solid foundation for scientists,
+            researchers, and programmers to harness the power of code in their scientific endeavors.</p>
+        </div>
+      </div>
+      <div class="card" (click)="getById('4')" routerLink="/getbycategory">
+        <img src="/assets/database.png" alt="Book 4">
+        <div class="card-content">
+          <h3 class="card-title">Category: Database</h3>
+          <p class="card-info">A definitive resource that takes you on a journey through the world of databases,
+            equipping you with the knowledge and skills to design, build, and manage robust and efficient database
+            systems. Whether you are a beginner or an experienced professional, this book will empower you to harness
+            the power of databases and leverage them effectively in your projects.</p>
+        </div>
+      </div>
+      <div class="card" (click)="getById('5')" routerLink="/getbycategory">
+        <img src="/assets/network.png" alt="Book 5">
+        <div class="card-content">
+          <h3 class="card-title">Category: Networking</h3>
+          <p class="card-info">A Comprehensive Guide to Network Design, Protocols, and Administration" is a
+            comprehensive resource that takes you on a journey through the world of computer networking, providing you
+            with the knowledge and skills to design, build, and manage robust and efficient networks. Whether you are a
+            beginner or an experienced IT professional, this book will empower you to understand and master the
+            complexities of modern networking.</p>
+        </div>
+      </div>
+      <div class="card" (click)="getById('6')" routerLink="/getbycategory">
+        <img src="/assets/libsci.png" alt="Book 6">
+        <div class="card-content">
+          <h3 class="card-title">Category: Library Science</h3>
+          <p class="card-info">Navigating Information in the Digital Age" is an enlightening and comprehensive guide
+            that explores the evolving field of library science in the context of today's digital landscape. This book
+            serves as a valuable resource for aspiring librarians, information professionals, researchers, and anyone
+            interested in understanding the vital role of libraries and information services in society.</p>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+  <body>
+    <footer>
+      <div class="f-item-con">
+        <div class="app-info">
+          <span class='app-name'>
+            <span class='app-initial'>T</span>eam 1:
+          </span>
+          <p>We provides you with <strong>Well organised</strong> and <strong>user friendly</strong> Inventory
+            management system.</p>
+        </div>
+        <div class="useful-links">
+          <div class="footer-title">Useful Links</div>
+          <ul>
+            <li>Courses</li>
+            <li>Sign In</li>
+            <li>About Us</li>
+            <li>Become an Affiliate</li>
+            <li>Advertise with Us</li>
+            <li>Terms and Conditions</li>
+          </ul>
+        </div>
+        <div class="help-sec">
+          <!-- <div class="footer-title">Help</div> -->
+          <ul>
+            <!-- <li>Help Me</li>
+                    <li>Feedback</li>
+                    <li>Report a Issue / Bug</li> -->
+          </ul>
+        </div>
+        <div class="g-i-t">
+          <div class="footer-title">Get in Touch</div>
+          <form action="/" method="post" class="space-y-2">
+            <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+            <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+            <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+              placeholder='Message...'></textarea>
+            <button type="submit" class='f-btn'>Submit</button>
+          </form>
+        </div>
+      </div>
+      <div class='cr-con'>Copyright &copy; 2023 | Made by Team: 1</div>
+    </footer>
+  </body>

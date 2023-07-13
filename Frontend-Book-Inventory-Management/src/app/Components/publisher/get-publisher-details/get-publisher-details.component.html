@@ -1,0 +1,58 @@
+<div>
+  <h2 style="margin-left: 30rem;">Get Publisher Details</h2><br>
+
+  <div class="card">
+    <form (ngSubmit)="getPublisherDetails()">
+      <div class="input-container">
+        <label for="publisherId">Publisher ID:</label>
+        <input type="number" id="publisherId" name="publisherId" [(ngModel)]="publisherId" placeholder="Enter Publisher ID" required>
+      </div>
+  
+      <div class="input-container">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="name" placeholder="Enter Name" required>
+      </div>
+  
+      <div class="input-container">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" [(ngModel)]="city" placeholder="Enter City" required>
+      </div>
+  
+      <div class="input-container">
+        <label for="stateCode">State Code:</label>
+        <input type="text" id="stateCode" name="stateCode" [(ngModel)]="stateCode" placeholder="Enter State Code" required>
+      </div>
+  
+      <button type="submit">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <i class="fas fa-search button-icon"></i>
+        Get Publisher
+      </button>
+    </form>
+  </div>
+  <hr>
+  
+  
+
+  
+  <div *ngIf="publisher.length > 0">
+    <table class="table table-striped-columns,">
+      <thead>
+        <tr>
+          <th>Publisher ID </th>
+          <th>Name</th>
+          <th>City</th>
+          <th>State Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let publisher of publisher">
+          <td>{{ publisher.publisherId }}</td>
+          <td>{{ publisher.name }}</td>
+          <td>{{ publisher.city }}</td>
+          <td>{{ publisher.stateCode }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

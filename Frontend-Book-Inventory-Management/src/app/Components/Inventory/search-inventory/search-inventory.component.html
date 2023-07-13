@@ -1,0 +1,34 @@
+<div class="card" style="width: 40%; margin-left: 4rem; margin-top: 2rem;">
+  <div class="card-body">
+    <h5 class="card-title">Search Book Inventory</h5>
+
+    <div class="form-group">
+      <label for="inventoryIdInput">Inventory ID:</label>
+      <input id="inventoryIdInput" type="number" [(ngModel)]="inventoryId" />
+    </div>
+
+    <button class="btn btn-primary" (click)="searchInventory()">Search</button>
+  </div>
+</div>
+
+<div *ngIf="inventory" style="width: 40rem; margin-left: 4rem;">
+  <h5 style="margin-top: 2rem;">Inventory Details</h5>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Inventory ID</th>
+        <th>Purchased</th>
+        <th>ISBN</th>
+        <th>Ranks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ inventory.inventoryId }}</td>
+        <td>{{ inventory.purchased }}</td>
+        <td>{{ inventory.isbn }}</td>
+        <td>{{ inventory.ranks }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

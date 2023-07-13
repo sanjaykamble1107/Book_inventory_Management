@@ -1,0 +1,14 @@
+<p>update-condition-fullDescription works!</p>
+<form (ngSubmit)="updateFullDescription()">
+  <div>
+    <label for="ranks">Ranks:</label>
+    <input type="text" id="ranks" [(ngModel)]="ranks" name="ranks">
+  </div>
+
+  <div>
+    <label for="fulldescription">FullDescription:</label>
+    <textarea id="fulldescription" [(ngModel)]="bookCondition.fullDescription" name="fulldescription"></textarea>
+  </div>
+
+  <button type="submit">Update FullDescription</button>
+</form>

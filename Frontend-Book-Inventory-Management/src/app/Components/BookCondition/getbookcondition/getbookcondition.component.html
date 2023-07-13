@@ -1,0 +1,20 @@
+
+
+<div>
+  <h2>Get Book Condition by Ranks</h2>
+  <form #bookForm="ngForm" (ngSubmit)="getBookCondition()">
+    <label for="ranksInput">Enter Ranks:</label>
+    <input type="text" id="ranksInput" name="ranks" [(ngModel)]="ranks" required>
+    <div *ngIf="bookForm.controls['ranks'].invalid && bookForm.controls['ranks'].touched">
+      <p>Please enter a valid rank.</p>
+    </div>
+    <button type="submit" [disabled]="bookForm.invalid">Get Book Condition</button>
+  </form>
+
+  <div *ngIf="bookCondition">
+    <h3>Description: {{ bookCondition.description }}</h3>
+    <p>Full Description: {{ bookCondition.fullDescription }}</p>
+    <p>Price: {{ bookCondition.price }}</p>
+  </div>
+</div>
+

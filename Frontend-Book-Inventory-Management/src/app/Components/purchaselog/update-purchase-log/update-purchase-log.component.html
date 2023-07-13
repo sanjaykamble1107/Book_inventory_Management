@@ -1,0 +1,42 @@
+
+
+<div class="card">
+  <h2>Update Purchase Log</h2>
+
+  <div class="form-group">
+    <label for="userIdInput"><i class="fas fa-user"></i> User ID:</label>
+
+    <input type="number" id="userIdInput" [(ngModel)]="userId" required #userIdInput="ngModel" />
+
+    <div *ngIf="userIdInput.invalid && (userIdInput.dirty || userIdInput.touched)" class="error-message"
+      style="color: red">
+      <i class="fas fa-exclamation-circle"></i> User ID is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inventoryIdInput"><i class="fas fa-shopping-cart"></i> New Inventory ID:</label>
+
+    <input type="number" id="inventoryIdInput" [(ngModel)]="inventoryId" required #inventoryIdInput="ngModel" />
+
+    <div *ngIf="
+        inventoryIdInput.invalid &&
+        (inventoryIdInput.dirty || inventoryIdInput.touched)
+      " class="error-message" style="color: red">
+      <i class="fas fa-exclamation-circle"></i> Inventory ID is required.
+    </div>
+  </div>
+
+  <button class="btn" (click)="updatePurchaseLog()" [disabled]="userIdInput.invalid || inventoryIdInput.invalid">
+    <i class="fas fa-save"></i> Update
+  </button>
+
+  <div class="success-message" *ngIf="updateSuccess">
+    <i class="fas fa-check-circle"></i> Purchase Log updated successfully.
+  </div>
+
+  <div class="error-message" *ngIf="updateError">
+    <i class="fas fa-exclamation-circle"></i> An error occurred while updating
+    the Purchase Log.
+  </div>
+</div>

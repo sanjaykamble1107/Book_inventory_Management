@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Get Book Reviews</h5>
+
+    <div class="form-group">
+      <select id="isbn" [(ngModel)]="isbn" name="isbn" placeholder="Select" required>
+        <option value="select" selected disabled>Select ISBN</option>
+        <option *ngFor="let Book of bookList" [value]="Book.isbn">
+          {{ Book.title }}
+        </option>
+      </select>
+    </div>
+
+    <button class="btn btn-primary" (click)="getBookReviews()">
+      Get Book Reviews
+    </button>
+
+    <div *ngIf="bookReviews.length > 0" class="book-review-table">
+      <h5>Book Reviews:</h5>
+      <table>
+        <thead>
+          <tr>
+            <th>Reviewer ID</th>
+            <th>Rating</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let review of bookReviews">
+            <td>{{ review.reviewerID }}</td>
+            <td>{{ review.rating }}</td>
+            <td>{{ review.comments }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="bookReviews.length === 0 && isGetReviewsClicked" class="no-reviews-message">
+      No reviews found for the given ISBN.
+    </div>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+<!-- <h2 style="font-family: Oxygen; margin-top: 1rem">Search Book by Title</h2>
+<br />
+
+<form (ngSubmit)="bookByTitle()">
+  <div class="search">
+    <input type="text" id="title" [(ngModel)]="title" name="title" placeholder=" Search Book by Title..." type="text" />
+
+    <button type="submit"><strong>Search</strong></button>a
+  </div>
+</form>
+
+<hr />
+
+<table class="table table-primary">
+  <thead>
+    <tr>
+      <th>Book ID</th>
+
+      <th>Category</th>
+
+      <th>Title</th>
+
+      <th>Description</th>
+
+      <th>Edition</th>
+
+      <th>Publisher ID</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>{{ titleList.isbn }}</td>
+
+      <td>{{ titleList.category }}</td>
+
+      <td>{{ titleList.title }}</td>
+
+      <td>{{ titleList.description }}</td>
+
+      <td>{{ titleList.edition }}</td>
+
+      <td>{{ titleList.publisherId }}</td>
+    </tr>
+  </tbody>
+</table> -->
+
+<h2 style="font-family: Oxygen; margin-top: 1rem;">Search Book by Title</h2>
+
+
+
+
+<form (ngSubmit)="bookByTitle()" #searchForm="ngForm" class="search-form">
+
+  <div class="search">
+
+    <input type="text" id="title" [(ngModel)]="title" name="title" placeholder="Search Book by Title..." required>
+
+    <button [disabled]="searchForm.invalid" type="submit" ><strong>Search</strong></button>
+
+  </div>
+
+  <div class="error-message" *ngIf="searchForm.submitted && searchForm.controls['title']?.invalid && searchForm.controls['title']?.touched">
+
+    Title is required.
+
+  </div>
+
+</form>
+
+
+
+
+<hr>
+
+
+
+
+<table class="table table-primary">
+
+  <thead>
+
+    <tr>
+
+      <th>Book ID</th>
+
+      <th>Category</th>
+
+      <th>Title</th>
+
+      <th>Description</th>
+
+      <th>Edition</th>
+
+      <th>Publisher ID</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody *ngIf="titleList">
+
+    <tr>
+
+      <td>{{titleList.isbn}}</td>
+
+      <td>{{titleList.category}}</td>
+
+      <td>{{titleList.title}}</td>
+
+      <td>{{titleList.description}}</td>
+
+      <td>{{titleList.edition}}</td>
+
+      <td>{{titleList.publisherId}}</td>
+
+    </tr>
+
+  </tbody>
+
+  <tbody *ngIf="!titleList">
+
+    <tr>
+
+      <td colspan="6">No results found.</td>
+
+    </tr>
+
+  </tbody>
+
+</table>

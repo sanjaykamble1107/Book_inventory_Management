@@ -1,0 +1,34 @@
+<h3>Search user by User ID</h3><br><br>
+
+<div class="search-container">
+  <label for="userId">Search by User ID:</label>
+  <input type="number" id="userId" [(ngModel)]="searchUserId">
+
+  <button (click)="searchUsers()" style="margin-left: 1rem;">Search</button>
+</div>
+
+<div class="table-container">
+  <table class="table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Phone Number</th>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userList" class="table-row">
+        <td>{{ user.userId }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.phoneNumber }}</td>
+        <td>{{ user.userName }}</td>
+        <td>{{ user.password }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

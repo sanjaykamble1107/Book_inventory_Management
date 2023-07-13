@@ -1,0 +1,49 @@
+<h2 style="font-family: Oxygen; margin-top: 1rem">Search Book by ISBN</h2>
+<br />
+
+<form (ngSubmit)="getByIsbn()" #isbnForm="ngForm">
+      <div class="search">
+            <input id="isbn" [(ngModel)]="searchCriteria.isbn" name="isbn" placeholder="Enter 13 digit ISBN..."
+                  type="text" required pattern="[0-9, -]{13}" />
+            <div *ngIf="
+        isbnForm.controls['isbn'].invalid &&
+        (isbnForm.controls['isbn'].dirty || isbnForm.controls['isbn'].touched)
+      " style="color: red">
+                  Please enter a valid 13 digit ISBN number.
+            </div>
+            <button type="submit"><strong>Search</strong></button>
+      </div>
+</form>
+<hr />
+<br />
+
+<table  *ngIf="book != null" class="table table-bordered table-hover">
+      <thead >
+            <tr>
+                  <th>Book ID</th>
+                  <th>Category</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Edition</th>
+                  <th>Publisher ID</th>
+            </tr>
+      </thead>
+      <tbody >
+            <tr  *ngFor="let books of booksByIsbnList"  >
+                  <td>{{ books.isbn }}</td>
+                  <td>{{ books.category }}</td>
+                  <td>{{ books.title }}</td>
+                  <td>{{ books.description }}</td>
+                  <td>{{ books.edition }}</td>
+                  <td>{{ books.publisherId }}</td>
+            </tr>
+            <tr *ngIf="book != null">
+                  <td>{{ book.isbn }}</td>
+                  <td>{{ book.category }}</td>
+                  <td>{{ book.title }}</td>
+                  <td>{{ book.description }}</td>
+                  <td>{{ book.edition }}</td>
+                  <td>{{ book.publisherId }}</td>
+            </tr>
+      </tbody>
+</table>

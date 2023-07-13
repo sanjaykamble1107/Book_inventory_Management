@@ -1,0 +1,39 @@
+<div class="card" style="margin-top: 2rem;">
+  <div class="card-body">
+    <h5 class="card-title">Add Inventory</h5>
+
+    <div class="form-group">
+      <label for="purchasedInput">Purchased:</label>
+      <br>
+      <select id="purchasedInput" [(ngModel)]="inventory.purchased">
+        <option [ngValue]="0">Not Purchased</option>
+        <option [ngValue]="1">Purchased</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+       <label for="isbnInput">Select Book:</label><br>
+     
+      <select id="purchasedInput" [(ngModel)]="inventory.isbn" name="isbn" placeholder="Select" required style="padding: 10px; width: 100%; border-color: gainsboro;">
+    
+        <option value="select" selected>Select ISBN </option>
+        <option *ngFor="let Book of bookList" [value]="Book.isbn" >{{Book.title}}</option>
+
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="ranksInput">Ranks:</label>
+      <input id="ranksInput" type="number" [(ngModel)]="inventory.ranks" />
+    </div>
+
+    <button class="btn btn-primary" (click)="addInventory()">Add</button>
+  </div>
+</div>
+
+ 
+
+
+
+ 

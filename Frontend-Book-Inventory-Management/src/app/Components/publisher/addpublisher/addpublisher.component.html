@@ -1,0 +1,43 @@
+<div class="card-container">
+  <div class="card">
+    <h2 style="font-family: Oxygen">Add Publisher</h2>
+
+    <form (ngSubmit)="addPublisher()" #publisherForm="ngForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Publisher Name" [(ngModel)]="publisher.name"
+          style="margin-left: 55px" required />
+        <div *ngIf="
+          publisherForm.controls['name'].invalid &&
+          (publisherForm.controls['name'].dirty ||
+            publisherForm.controls['name'].touched)
+        " style="color: red">
+          Publisher Name is required.
+        </div>
+      </div>
+      <div>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" placeholder="Publisher City" [(ngModel)]="publisher.city"
+          style="margin-left: 70px" required />
+        <div *ngIf="
+          publisherForm.controls['city'].invalid &&
+          (publisherForm.controls['city'].dirty ||
+            publisherForm.controls['city'].touched)
+        " style="color: red">
+          Publisher City is required.
+        </div>
+      </div>
+      <div>
+        <label for="stateCode">State Name:</label>
+        <select id="stateCode" name="stateCode" [(ngModel)]="publisher.stateCode"
+          style="width: 55%; margin-left: 0.8rem" class="input" required>
+          <option disabled selected>Select state name</option>
+          <option *ngFor="let state of stateList" [value]="state.stateCode">
+            {{ state.stateName }}
+          </option>
+        </select>
+      </div>
+      <button type="submit" [disabled]="publisherForm.invalid">Add Publisher</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+
+<form (ngSubmit)="updateDescription()">
+  <div>
+    <label for="ranks">Ranks:</label>
+    <input type="text" id="ranks" [(ngModel)]="ranks" name="ranks" required>
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" [(ngModel)]="description.description" name="description" required></textarea>
+  </div>
+
+  <button type="submit">Update Description</button>
+</form>

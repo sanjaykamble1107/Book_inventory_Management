@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Add New Book Review</h5>
+
+    <div class="form-group">
+      <label for="isbnInput">ISBN:</label>
+      <input id="isbnInput" type="text" [(ngModel)]="bookReview.isbn" />
+    </div>
+
+    <div class="form-group">
+      <label for="reviewerIdInput">Reviewer ID:</label>
+      <input id="reviewerIdInput" type="number" [(ngModel)]="bookReview.reviewerID" />
+    </div>
+
+    <div class="form-group">
+      <label for="ratingInput">Rating:</label>
+      <input id="ratingInput" type="number" min="0" max="10" [(ngModel)]="bookReview.rating" />
+      <div class="error-message" *ngIf="ratingInvalid">Rating must be between 0 and 10</div>
+    </div>
+
+    <div class="form-group">
+      <label for="commentsInput">Comments:</label>
+      <textarea id="commentsInput" [(ngModel)]="bookReview.comments"></textarea>
+    </div>
+
+    <button class="btn btn-primary" (click)="addBookReview()">Add Book Review</button>
+  </div>
+</div>

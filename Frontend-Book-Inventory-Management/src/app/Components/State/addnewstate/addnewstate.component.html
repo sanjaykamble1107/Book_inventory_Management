@@ -1,0 +1,37 @@
+<div class="col-md-6 offset-md-3">
+  <h3>Create State</h3>
+
+  <form (ngSubmit)="onSubmit()" #stateForm="ngForm">
+    <div class="form-group">
+      <label for="stateCode">State Code</label>
+
+      <input type="text" class="form-control" id="stateCode" [(ngModel)]="state.stateCode" name="stateCode" required
+        #stateCodeInput="ngModel" />
+
+      <div *ngIf="
+          stateCodeInput.invalid &&
+          (stateCodeInput.dirty || stateCodeInput.touched)
+        " style="color: red">
+        State Code is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="stateName">State Name</label>
+
+      <input type="text" class="form-control" id="stateName" [(ngModel)]="state.stateName" name="stateName" required
+        #stateNameInput="ngModel" />
+
+      <div *ngIf="
+          stateNameInput.invalid &&
+          (stateNameInput.dirty || stateNameInput.touched)
+        " style="color: red">
+        State Name is required.
+      </div>
+    </div>
+
+    <button class="btn btn-success" type="submit" [disabled]="stateForm.invalid">
+      Create
+    </button>
+  </form>
+</div>

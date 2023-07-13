@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Update State Name</h5>
+
+    <div class="form-group">
+      <label for="stateCodeInput">State Code:</label>
+
+      <input id="stateCodeInput" type="text" [(ngModel)]="state.stateCode" name="stateCode"
+        placeholder="State code you want to update" required #stateCodeInput="ngModel" />
+
+      <div *ngIf="
+          stateCodeInput.invalid &&
+          (stateCodeInput.dirty || stateCodeInput.touched)
+        " style="color: red">
+        State Code is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="stateNameInput">State Name:</label>
+
+      <input id="stateNameInput" type="text" [(ngModel)]="state.stateName" name="stateName" placeholder="New state name"
+        required #stateNameInput="ngModel" />
+
+      <div *ngIf="
+          stateNameInput.invalid &&
+          (stateNameInput.dirty || stateNameInput.touched)
+        " style="color: red">
+        State Name is required.
+      </div>
+    </div>
+
+    <button class="btn btn-primary" (click)="updateStateName()"
+      [disabled]="stateCodeInput.invalid || stateNameInput.invalid">
+      Update
+    </button>
+  </div>
+</div>

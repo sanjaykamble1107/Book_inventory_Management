@@ -1,0 +1,16 @@
+<div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true" />
+
+    <div class="login">
+        <form class="form" [formGroup]="signinForm" (ngSubmit)="loginUser()">
+            <label for="chk" aria-hidden="true">Log in</label>
+
+            <input class="input" type="email" name="email" placeholder="Email" formControlName="userName" required />
+
+            <input class="input" a type="password" name="pswd" placeholder="Password" formControlName="password"
+                required />
+
+            <button type="submit" class="login-button">Log in</button>
+        </form>
+    </div>
+</div>
